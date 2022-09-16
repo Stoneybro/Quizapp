@@ -14,10 +14,10 @@ export default function Quiz() {
     const [showmodal,setshowmodal]=React.useState(false)
     const [ans,setans]=React.useState(false)
     const [goback,setgoback]=React.useState(false)
-    const [scores,setscores]=React.useState(JSON.parse(localStorage.getItem('scores')) || [''])
+    const [scores,setscores]=React.useState(JSON.parse(localStorage.getItem('scores'))||[''])
     const [dataloading,setdataloading]=React.useState(true)
 
-
+ 
     ////////////////////////////////////////////////////
     
 let url=`https://the-trivia-api.com/api/questions?categories=${categorydifficulty[0]}&limit=10&difficulty=${categorydifficulty[1]}`
@@ -32,12 +32,13 @@ const fetchApi=async()=>{
         console.log(error.message);
     }
 }
+
 useEffect(()=>{
   if (categorydifficulty[0]&&categorydifficulty[1]) {
     fetchApi()
   }
     return
-},[categorydifficulty[0],categorydifficulty[1]])
+},[])
 
 
 
@@ -114,6 +115,9 @@ const correctans=questions?.reduce((total,amount)=>{
     }))
    }
 
+
+   
+
     const questionelements=questions?.map((question,index)=>{
         return <Questions key={question.id} {...question} handleselect={handleselect} shuffleArray={shuffleArray} index={index} />
     })
@@ -124,6 +128,28 @@ const correctans=questions?.reduce((total,amount)=>{
     function clickback(params) {
         setgoback(true)
     }
+
+   
+   useEffect(()=>{
+    if (!scores.includes('')) {
+        const points=scores[0]?.reduce((total,amount)=>{
+
+            return parseInt(total)+parseInt(amount.score)
+          },[0])
+          const percent=scores[0]?.reduce((total,amount)=>{
+          
+          return parseInt(total)+parseInt(amount.score)/scores[0].length
+            
+          },[0])
+          let percentage=Math.round(percent*10)
+          localStorage.setItem('usernumbers',JSON.stringify([percentage,points]))
+          
+    }
+   },[checkanswers])
+
+
+
+    ///////////////////////////////////////////
   
     if (!questions) {
         return <ColorRing />
