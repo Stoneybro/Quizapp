@@ -3,7 +3,7 @@ import Bnavbar from './bottomnavbar'
 import {CirclesWithBar,ThreeCircles,BallTriangle} from 'react-loader-spinner'
 export default function randomfact(params) {
     
-    const [facts,setFacts]=React.useState(JSON.parse(localStorage.getItem('facts')))
+    const [facts,setFacts]=React.useState()
     const [loading,setloading]=React.useState(true)
     const [factno,setfactno]=React.useState(0)
     //console.log(localfacts());
@@ -16,14 +16,14 @@ export default function randomfact(params) {
   }
 
   useEffect(()=>{
-    //fetchRandom()
+    fetchRandom()
   },[])
   useEffect(()=>{
     localStorage.setItem('facts',JSON.stringify(facts))
   },[facts])
 
 
-  if (!JSON.parse(localStorage.getItem('facts'))) {
+  if (!facts) {
     return(<div className="factloading">
         <ThreeCircles color="rgba(104, 92, 218, 1)" />
         <Bnavbar />

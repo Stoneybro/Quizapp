@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import emoji from './emojione_trophy.svg'
 import { Link, useLocation } from 'react-router-dom'
 import {AiFillLeftCircle,AiOutlineCloseSquare} from 'react-icons/ai'
-import {ColorRing} from 'react-loader-spinner'
+import {ThreeCircles} from 'react-loader-spinner'
 import Questions from './Questions'
 
 export default function Quiz() {
@@ -152,12 +152,12 @@ const correctans=questions?.reduce((total,amount)=>{
     ///////////////////////////////////////////
   
     if (!questions) {
-        return <ColorRing />
+        return <div className='threecircles'><ThreeCircles color="rgba(104, 92, 218, 1)"  /></div>
     }
     return(
         <div className="quizapp-main">
             <div className="quizpage-topbar">
-               <div className="backtopicon" onClick={()=>clickback()}><AiFillLeftCircle color='rgba(104, 92, 218, 1)' size={40} /></div>
+               <div className="backtopicon" onClick={()=>history.back()}><AiFillLeftCircle color='rgba(104, 92, 218, 1)' size={40} /></div>
                <div className="text">{questions[0]?.category}</div> <div></div>
               
             </div>
@@ -174,11 +174,7 @@ const correctans=questions?.reduce((total,amount)=>{
               
                 <button className='restart' onClick={()=>history.back()}> Go Home</button>
             </div>}
-            {goback&& <div className="modalscores">
-            <div className="cancelmodal" onClick={()=>setgoback(false)}><AiOutlineCloseSquare color='rgba(196, 35, 35, 0.639)' size={35}/></div>
-            <div className="text" >Are you sure?</div>
-            <div className="goback" onClick={()=>{history.back();clearstorage()} } >Yes</div>
-            </div> }
+      
             
       {questionelements}
  
