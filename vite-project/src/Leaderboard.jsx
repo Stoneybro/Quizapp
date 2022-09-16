@@ -1,11 +1,12 @@
 import Bnavbar from './bottomnavbar'
+import crown from './Group.svg'
 export default function leaderboard(params) {
     return(
         <div className='leader-board'>
             <div className="leaders">
                 <h3>Leaderboard</h3>
                 <div className="first-leader">
-                    {/* <img src="" alt="" /> */}1
+                <div><img src={crown} alt="" width={40} /></div>
                     <div className="leader-profile">K</div>
                     <div className="leader-point">300</div>
                     <div className="leader-username">kevin99</div>

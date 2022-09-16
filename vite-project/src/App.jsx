@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import './App.css'
 import categorydata from './category'
-
+import home from './Home.png'
 import Home from './Home'
 import {FaPlay,FaHistory,FaHome} from 'react-icons/fa'
 

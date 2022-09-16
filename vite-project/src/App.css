@@ -523,6 +523,7 @@ margin-right: 1.5rem;
   font-size: 4rem;
   border: rgba(255, 255, 255, 0.1) 7px solid;
   padding: 0.5rem 2.5rem;
+  margin-top: 0.3rem;
 }
 .leader-point{
   font-size: 1.7rem;
@@ -556,6 +557,35 @@ margin-right: 1.5rem;
 .boardlist-points{
   margin-left: auto;
   font-size: 1rem;
+}
+/* ////////////sign up page/////////// */
+.signup{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.signup-img-title,.signup-input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.signup-title{
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.signup input{
+  
 }
 
 

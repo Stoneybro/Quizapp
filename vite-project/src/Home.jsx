@@ -5,7 +5,7 @@ import React, { useState,useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import Bnavbar from './bottomnavbar'
 import categorydata from './category'
-
+import Q from './Vector.svg'
 import {FaPlay,FaHistory,FaHome} from 'react-icons/fa'
 //ApiCall(difficultyapi,categoryapi)
 
@@ -92,6 +92,18 @@ console.log(percentage);
     </div>
     </div>
      {difficultybutton&&categorybutton? <div className='start'><Link to={'/Quiz'}state={props.categorydifficulty} >Start Quiz</Link></div>:<div className='start inactive'>Start Quiz</div>}
+     {<div className='signup'>
+      <div className="signup-img-title">
+      <img src={Q} alt="" />
+     <div className="signup-title">Quizzapp</div>
+      </div>
+     <div className="signup-input">
+     <input type="text" placeholder='Name' />
+      <input type="text" placeholder='Email' />
+     </div>
+     
+      <button>Enter Quizapp</button>
+      </div>}
    <Bnavbar />
   </div>
     )
